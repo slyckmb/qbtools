@@ -50,7 +50,7 @@ def get_config(args, key=None, default=None):
         try:
             config = yaml.safe_load(stream)
         except yaml.YAMLError as e:
-            logger.error(e)
+            logger.warning(e)
 
     if key:
         config = config.get(key, default)
