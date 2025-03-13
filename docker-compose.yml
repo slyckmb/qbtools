@@ -1,0 +1,13 @@
+version: '3'
+services:
+  qbtools:
+    image: qbtools
+    container_name: qbtools
+    volumes:
+      - /mnt/media/Downloads/torrents:/torrents
+      - ./entrypoint.sh:/app/entrypoint.sh
+    environment:
+      - QBITTORRENTAPI_DO_NOT_VERIFY_WEBUI_CERTIFICATE=true
+    stdin_open: true  # keep stdin open
+    tty: true         # allocate a pseudo-TTY
+    entrypoint: /app/entrypoint.sh  # use the entrypoint script
